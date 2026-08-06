@@ -1,0 +1,15 @@
+pkgbase = devsy-desktop-bin
+	pkgdesc = Desktop application for Devsy
+	pkgver = 1.14.1
+	pkgrel = 1
+	url = https://devsy.sh
+	arch = x86_64
+	license = MPL-2.0
+	provides = devsy-desktop
+	conflicts = devsy-desktop
+	noextract = Devsy_linux_x86_64.AppImage
+	options = !strip
+	source = Devsy_linux_x86_64.AppImage::https://github.com/devsy-org/devsy/releases/download/v1.14.1/Devsy_linux_x86_64.AppImage
+	sha256sums = a0f5e4562bdb1a55ef08210b37b94bcc6881c743278503515961e881667909dc
+
+pkgname = devsy-desktop-bin

@@ -1,0 +1,62 @@
+# Maintainer: Shotor (AUR: Shotor) <dev [at] shotor [dot] com>
+
+pkgname=devsy-desktop-bin
+pkgver=1.14.1
+pkgrel=1
+pkgdesc="Desktop application for Devsy"
+arch=('x86_64')
+url="https://devsy.sh"
+license=('MPL-2.0')
+
+conflicts=('devsy-desktop')
+provides=('devsy-desktop')
+
+depends=(
+  'glibc'
+  'zlib'
+  'hicolor-icon-theme'
+)
+
+options=('!strip' '!debug')
+
+source=(
+  "Devsy_linux_x86_64.AppImage::https://github.com/devsy-org/devsy/releases/download/v${pkgver}/Devsy_linux_x86_64.AppImage"
+)
+
+sha256sums=(
+  'a0f5e4562bdb1a55ef08210b37b94bcc6881c743278503515961e881667909dc'
+)
+
+noextract=('Devsy_linux_x86_64.AppImage')
+
+prepare() {
+  cd "$srcdir"
+
+  chmod +x Devsy_linux_x86_64.AppImage
+  ./Devsy_linux_x86_64.AppImage --appimage-extract >/dev/null
+}
+
+package() {
+  install -Dm755 \
+    "$srcdir/Devsy_linux_x86_64.AppImage" \
+    "$pkgdir/opt/devsy-desktop/devsy.AppImage"
+
+  install -Dm644 \
+    "$srcdir/squashfs-root/devsy-desktop.desktop" \
+    "$pkgdir/usr/share/applications/devsy-desktop.desktop"
+
+  sed -i \
+    -e 's|^Exec=.*|Exec=devsy-desktop|' \
+    -e 's|^Icon=.*|Icon=devsy-desktop|' \
+    "$pkgdir/usr/share/applications/devsy-desktop.desktop"
+
+  install -Dm644 \
+    "$srcdir/squashfs-root/usr/share/icons/hicolor/128x128/apps/devsy-desktop.png" \
+    "$pkgdir/usr/share/icons/hicolor/128x128/apps/devsy-desktop.png"
+
+  install -dm755 "$pkgdir/usr/bin"
+
+  ln -s \
+    /opt/devsy-desktop/devsy.AppImage \
+    "$pkgdir/usr/bin/devsy-desktop"
+}
