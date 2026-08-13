@@ -14,6 +14,14 @@ yay -S devsy-bin
 yay -S devsy-desktop-bin
 ```
 
+## Local
+
+```sh
+makepkg -si
+# or
+makepkg -Ccfsi
+```
+
 ## Updating
 
 ```sh
