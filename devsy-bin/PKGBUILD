@@ -1,7 +1,7 @@
 # Maintainer: Shotor (AUR: Shotor) <dev [at] shotor [dot] com>
 
 pkgname=devsy-bin
-pkgver=1.15.0
+pkgver=1.16.1
 pkgrel=1
 pkgdesc="CLI for Devsy"
 arch=('x86_64')
@@ -18,7 +18,7 @@ source=(
 )
 
 sha256sums=(
-  '0633d0fda570ac799b4989596287386b87b11cc8f7233a80267150f9cb16f69b'
+  '79eeb50d25363d6eb682dca53be78ef717b001f0d8d1f636ba3179e204e162fe'
 )
 
 package() {

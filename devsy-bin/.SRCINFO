@@ -1,6 +1,6 @@
 pkgbase = devsy-bin
 	pkgdesc = CLI for Devsy
-	pkgver = 1.15.0
+	pkgver = 1.16.1
 	pkgrel = 1
 	url = https://devsy.sh
 	arch = x86_64
@@ -9,7 +9,7 @@ pkgbase = devsy-bin
 	conflicts = devsy
 	options = !strip
 	options = !debug
-	source = devsy::https://github.com/devsy-org/devsy/releases/download/v1.15.0/devsy-linux-amd64
-	sha256sums = 0633d0fda570ac799b4989596287386b87b11cc8f7233a80267150f9cb16f69b
+	source = devsy::https://github.com/devsy-org/devsy/releases/download/v1.16.1/devsy-linux-amd64
+	sha256sums = 79eeb50d25363d6eb682dca53be78ef717b001f0d8d1f636ba3179e204e162fe
 
 pkgname = devsy-bin
